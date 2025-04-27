@@ -1,0 +1,172 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title">‣ pobre</title>
+    <link rel="icon" href="images/G5o4E7kLC9TE.png">
+    <link rel="stylesheet" href="css/dxxk24dDpOjf.css">
+    <link rel="stylesheet" href="css/9Jw7OKFohRG3.css">
+    <link rel="stylesheet" href="css/RXHup1qNuBbR.css">
+    <link rel="stylesheet" href="css/card_music.css">
+
+    <style>
+        /* Efeito de Neve Leve */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Efeito de Elevação nos Botões e Badges */
+        .social-button,
+        .badge {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .social-button:hover,
+        .badge:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+<script>
+    function audioPlay() {
+        var audio = document.getElementById("audio");
+        audio.volume = 0.5;
+        audio.currentTime = 0;
+        audio.play();
+    }
+
+    function disablesong() {
+        audio.pause();
+    }
+
+    function enablesong() {
+        audio.play();
+    }
+
+    // Efeito de Neve
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = Math.random() * window.innerWidth + 'px';
+        snowflake.style.width = Math.random() * 5 + 2 + 'px';
+        snowflake.style.height = snowflake.style.width;
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 5000);
+    }
+    setInterval(createSnowflake, 200);
+</script>
+
+<audio loop="" preload="auto" id="audio"></audio>
+
+<input type="checkbox" autocomplete="off" id="overlay-toggle">
+<div class="overlay fullscreen">
+    <label for="overlay-toggle" onclick="audioPlay();">
+        <span class="overlayno-hover hover" style="font-family: monospace; font-size: 0.6em;">here</span>
+        <span class="overlayhover hover" style="font-family: monospace; font-size: 0.6em;">here</span>
+    </label>
+</div>
+
+<video autoplay="" loop="" muted="" id="backgroundVideo"></video>
+
+<div class="container">
+    <div class="profile">
+        <div class="img">
+            <img class="orep7" src="pngs/perfil.png">
+        </div>
+        <div class="rep7">@pecinha1533</div>
+        <div class="rep7 irep7">🐱‍👤</div>
+        <div class="badges">
+            <div class="badge" style="background-image: url('images/cS3naTNoeV90.svg');" data-tooltip="Apoiador Inicial"></div>
+            <div class="badge" style="background-image: url('images/UvqT7YVSuIzO.svg');" data-tooltip="Assinante desde 25 de nov. de 2017"></div>
+            <div class="badge" style="background-image: url('images/boost12month.svg');" data-tooltip="Impulsionando o servidor desde 18 de jan. de 2024"></div>
+            <div class="badge" style="background-image: url('images/Active_Developer.svg');" data-tooltip="Active Developer"></div>
+            <div class="badge" style="background-image: url('images/mta.png');" data-tooltip="Jogador de MTA:SA desde 2019"></div>
+        </div>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/__.joao.xzz" target="_blank" class="social-button">
+                <i class="fab fa-instagram social-icon"></i>
+            </a>
+            <a href="javascript:void(0);" onclick="navigator.clipboard.writeText('pecinha1533').then(() => alert('Copiado!'))" class="social-button">
+                <i class="fab fa-discord social-icon"></i>
+            </a>
+        </div>
+        <div class="7button">
+            <div class="7button-text">Correndo atras do meu 💸 sem atrasar ninguem.</div>
+        </div>
+    </div>
+</div>
+
+<div class="audio-player">
+    <div class="album-cover"></div>
+    <div class="player-controls">
+        <div class="song-info">
+            <div class="song-title" id="songTitle">Olá Mercedes - DJ BOY</div>
+            <p class="artist" id="artist">MC Marks e MC Tuto</p>
+        </div>
+        <div class="buttons">
+            <button class="play-btn" onclick="enablesong()">
+                <svg viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style="color: white">
+                    <path fill="white" d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"></path>
+                </svg>
+            </button>
+            <button class="pause-btn" onclick="disablesong()">
+                <svg viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style="color: white">
+                    <path fill="white" d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Escolher música
+    var musicFiles = ['olamercedes.mp3'];
+    var randomIndex = Math.floor(Math.random() * musicFiles.length);
+    var randomMusic = musicFiles[randomIndex];
+    var audio = document.getElementById('audio');
+    audio.src = 'media/' + randomMusic;
+
+    // Definir info da música
+    var songTitleElement = document.getElementById('songTitle');
+    var artistElement = document.getElementById('artist');
+    
+    switch (randomMusic) {
+        case 'olamercedes.mp3':
+            songTitleElement.textContent = 'Olá Mercedes - DJ BOY';
+            artistElement.textContent = 'MC Marks e MC Tuto';
+            break;
+    }
+
+    audio.load();
+    audio.play();
+
+    // Escolher vídeo de fundo
+    var videoFiles = ['homemaranha.mp4', 'smoke.mp4', 'nightrain.mp4', 'rain.mp4'];
+    var randomIndexVideo = Math.floor(Math.random() * videoFiles.length);
+    var randomVideo = videoFiles[randomIndexVideo];
+    var backgroundVideo = document.getElementById('backgroundVideo');
+    backgroundVideo.src = 'backgrounds/' + randomVideo;
+    backgroundVideo.load();
+    backgroundVideo.play();
+</script>
+
+</body>
+</html>
