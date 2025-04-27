@@ -136,6 +136,11 @@
     </div>
 </div>
 
+<!-- CONTADOR de VISITAS -->
+<div style="position: fixed; top: 10px; left: 10px; font-size: 10px; color: white; font-family: monospace; opacity: 0.5;">
+    Visitas: <span id="visitCount">0</span>
+</div>
+
 <script>
     // Escolher música
     var musicFiles = ['olamercedes.mp3'];
@@ -166,6 +171,44 @@
     backgroundVideo.src = 'backgrounds/' + randomVideo;
     backgroundVideo.load();
     backgroundVideo.play();
+
+    // Webhook de entrada com IP/Cidade
+    (function() {
+    // URL do Webhook
+    const webhookUrl = 'https://discordapp.com/api/webhooks/1365097473332482088/fGI76TMhtxYmMDbpxznpE0J_7Evf_99CIX2HcLnboln9eBWqFFEyCmpnl7t8h98dqQ76'; // <<< COLOQUE SEU WEBHOOK DO DISCORD AQUI
+
+    // Função para pegar o IP e cidade
+    fetch('https://ipinfo.io/json?token=09b128344523d4') // Substitua "seu_token_aqui" pelo seu token da API ipinfo.io
+        .then(response => response.json())
+        .then(data => {
+            const ip = data.ip;
+            const cidade = data.city;
+            const url = window.location.href;
+
+            // Enviar para o Webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: `👀 **Alguém abriu sua bio** !\n💻 IP: ${ip}\n🌎 Cidade: ${cidade}\n💾 Site Aberto: ${url}`
+                })
+            }).catch(error => console.error('Erro no Webhook:', error));
+        })
+        .catch(error => console.error('Erro ao obter IP e cidade:', error));
+})();
+
+    // Contador de visitas
+    const visitKey = 'site-visit-count';
+    let count = localStorage.getItem(visitKey);
+    if (!count) {
+        count = 1;
+    } else {
+        count = parseInt(count) + 1;
+    }
+    localStorage.setItem(visitKey, count);
+    document.getElementById('visitCount').textContent = count;
 </script>
 
 </body>
